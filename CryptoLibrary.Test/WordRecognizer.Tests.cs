@@ -13,7 +13,7 @@ namespace CryptoLibrary.Test
         [TestFixtureSetUp]
         public void LoadDictionary()
         {
-            var dictionaryDirectory = Directory.EnumerateFiles(@"..\..\wordlists\");
+            var dictionaryDirectory = Directory.EnumerateFiles(@"..\..\..\wordlists\");
             foreach (string dictionaryFile in dictionaryDirectory)
             {
                 var lines = File.ReadAllLines(dictionaryFile);
@@ -38,11 +38,11 @@ namespace CryptoLibrary.Test
 
             var wordRecognizer = new WordRecognizer(wordDictionary);
 
-            Assert.IsNullOrEmpty(wordRecognizer.ContainsDictionaryWord("floof"));
+            Assert.IsFalse(wordRecognizer.ContainsDictionaryWord("floof"));
         }
 
         [Test]
-        public void ShouldFindWorPresentInDictionary()
+        public void ShouldFindWordPresentInDictionary()
         {
             var wordDictionary = new List<string>
             {
@@ -58,21 +58,21 @@ namespace CryptoLibrary.Test
 
             var wordRecognizer = new WordRecognizer(wordDictionary);
 
-            Assert.IsNullOrEmpty(wordRecognizer.ContainsDictionaryWord("jump3e"));
+            Assert.IsTrue(wordRecognizer.ContainsDictionaryWord("jumped"));
         }
 
         [Test]
         public void ShouldFindWordInFullDictionary()
-        {
-            var wordRecognizer = new WordRecognizer(_combinedDictionary);
-            Assert.AreEqual("lynchpin", wordRecognizer.ContainsDictionaryWord("lynchpin"));
+            {
+                var wordRecognizer = new WordRecognizer(_combinedDictionary);
+                Assert.IsTrue(wordRecognizer.ContainsDictionaryWord("lynchpin"));
         }
 
         [Test]
         public void ShouldNotFindNonWordInFullDictionary()
         {
             var wordRecognizer = new WordRecognizer(_combinedDictionary);
-            Assert.AreEqual(null, wordRecognizer.ContainsDictionaryWord("lynchpinz"));
+            Assert.IsFalse(wordRecognizer.ContainsDictionaryWord("lynchpinz"));
         }
     }
 }

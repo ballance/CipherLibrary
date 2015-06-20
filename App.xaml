@@ -1,8 +1,9 @@
-﻿<Application
+﻿<xaml:Application
     x:Class="CesarCipherBreaker.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:CesarCipherBreaker"
+    xmlns:media="clr-namespace:Windows.UI.Xaml.Media;assembly=Windows.Foundation.UniversalApiContract"
+    xmlns:xaml="clr-namespace:Windows.UI.Xaml;assembly=Windows.Foundation.UniversalApiContract"
     RequestedTheme="Light">
-
-</Application>
+</xaml:Application>

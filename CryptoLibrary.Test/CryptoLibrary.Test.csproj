@@ -61,7 +61,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CryptoLibrary\CryptoLibrary.csproj">
+    <ProjectReference Include="..\CryptoLibrary\CryptoLibrary.csproj">
       <Project>{609557bd-c6b7-4ec3-a147-a9fa49e32058}</Project>
       <Name>CryptoLibrary</Name>
     </ProjectReference>
